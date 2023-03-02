@@ -65,3 +65,17 @@ Matrix algebra::multiply(const Matrix& matrix, double c)
 }
 
 
+/**
+ * @brief 
+ * mplement this function 
+ * so that it multiplies the 
+ * matrix1 into matrix2. (this 
+ * is not an element-wise multiplication)
+ */
+Matrix algebra::multiply(const Matrix& matrix1, const Matrix& matrix2)
+{
+  if(matrix1[0].size() != matrix2.size())
+  {
+    
+  }
+}
