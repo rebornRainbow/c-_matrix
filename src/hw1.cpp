@@ -2,6 +2,7 @@
 
 #include <random>
 #include <iomanip>
+#include <stdexcept>
 
 Matrix algebra::zeros(size_t n,size_t m)
 {
@@ -19,6 +20,11 @@ Matrix algebra::ones(size_t n, size_t m)
 
 Matrix algebra::random(size_t n, size_t m, double min, double max)
 {
+  if(min > max)
+  {
+    throw std::invalid_argument("min can't larger than max");
+    // return {};
+  }
   std::default_random_engine generator;
   std::uniform_real_distribution<double> distribution(min,max);
   Matrix res = zeros(n,m);
@@ -43,3 +49,19 @@ void algebra::show(const Matrix& matrix)
   std::cout<< std::endl;
  }
 }
+
+
+Matrix algebra::multiply(const Matrix& matrix, double c)
+{
+  size_t n = matrix.size();
+  size_t m = matrix[0].size();
+  Matrix res = zeros(n,m);
+  for(size_t ni = 0;ni < n;++ni)
+    for(size_t  mi = 0; mi < m;++mi)
+    {
+      res[ni][mi] = matrix[ni][mi] * c;
+    }
+  return res;
+}
+
+

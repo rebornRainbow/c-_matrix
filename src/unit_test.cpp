@@ -53,11 +53,12 @@ TEST(HW1Test, RANDOM1) {
 }
 
 
-/*
+
 TEST(HW1Test, RANDOM2) {
     // Caution: min cannot be greater than max
     EXPECT_THROW(algebra::random(3, 4, 4, 2), std::logic_error);
 }
+
 
 TEST(HW1Test, MULTIPLY1) {
     Matrix matrix{algebra::random(3, 4, -4, 2)};
@@ -72,7 +73,7 @@ TEST(HW1Test, MULTIPLY1) {
         for (size_t j{}; j < mult[i].size(); j++)
             EXPECT_NEAR(mult[i][j], matrix[i][j]*3.5, 0.03);
 }
-
+/*
 TEST(HW1Test, MULTIPLY2) {
     // Caution: multiplication of 2 empty matrix
     Matrix matrix{algebra::multiply(Matrix{}, Matrix{})};
