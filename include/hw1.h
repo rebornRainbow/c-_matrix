@@ -80,6 +80,57 @@ Matrix multiply(const Matrix& matrix1, const Matrix& matrix2);
 
 
 
-}
 
+/**
+ * @brief 
+ * implement this function so that 
+ * it adds the constant number c to 
+ * every element of matrix.
+ * @param matrix 
+ * @param c 
+ * @return Matrix 
+ */
+Matrix sum(const Matrix& matrix, double c);
+
+
+
+/**
+ * @brief 
+ * implement this function so that it 
+ * adds 2 matrices to each other.
+ * @param matrix1 
+ * @param matrix2 
+ * @return Matrix 
+ */
+Matrix sum(const Matrix& matrix1, const Matrix& matrix2);
+
+
+
+/**
+ * @brief 
+ * transpose implement this function so 
+ * that it will generate the transpose 
+ * matrix of the input matrix.
+ * @param matrix 
+ * @return Matrix 
+ */
+Matrix transpose(const Matrix& matrix);
+
+
+
+/**
+ * @brief 
+ * minor implement this function so that 
+ * it will create the minor of the input 
+ * matrix with respect to nth row and 
+ * mth column.
+ * @param matrix 
+ * @param n 
+ * @param m 
+ * @return Matrix 
+ */
+Matrix minor(const Matrix& matrix, size_t n, size_t m);
+
+
+}
 #endif //AP_HW1_H
