@@ -144,5 +144,81 @@ Matrix minor(const Matrix& matrix, size_t n, size_t m);
 double determinant(const Matrix& matrix);
 
 
+
+
+/**
+ * @brief 
+ * inverse implement this function so that 
+ * it generates the matrix's inverse.
+ * @param matrix 
+ * @return Matrix 
+ */
+Matrix inverse(const Matrix& matrix);
+
+
+
+
+/**
+ * @brief 
+ * concatenate implement this function so that
+ * it will concatenate matrix1 and matrix2
+ * along the specified axis. (axis=0: on top
+ * of each other | axis=1: alongside each other).
+ * @param matrix1 
+ * @param matrix2 
+ * @param axis 
+ * @return Matrix 
+ */
+Matrix concatenate(const Matrix& matrix1, const Matrix& matrix2, int axis=0);
+
+/**
+ * @brief 
+ * elementary row operations
+ * swaps r1th row with r2th
+ * @param matrix 
+ * @param r1 
+ * @param r2 
+ * @return Matrix 
+ */
+Matrix ero_swap(const Matrix& matrix, size_t r1, size_t r2);
+
+/**
+ * @brief 
+ * multipl 
+ * multiplies every element in rth row with
+ *  constant number c.
+ * @param matrix 
+ * @param r 
+ * @param c 
+ * @return Matrix 
+ */
+Matrix ero_multiply(const Matrix& matrix, size_t r, double c);
+
+
+/**
+ * @brief 
+ * adds   r1th x c   into r2th row.
+ * @param matrix 
+ * @param r1 
+ * @param c 
+ * @param r2 
+ * @return Matrix 
+ */
+Matrix ero_sum(const Matrix& matrix, size_t r1, double c, size_t r2);
+
+
+
+
+/**
+ * @brief 
+ * upper triangular implement this function so that 
+ * it will calculate the upper triangular form of
+ *  the matrix using the ERO operations.
+ * @param matrix 
+ * @return Matrix 
+ */
+Matrix upper_triangular(const Matrix& matrix);
+
+
 }
 #endif //AP_HW1_H

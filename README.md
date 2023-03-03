@@ -146,3 +146,6 @@ double algebra::determinant(const Matrix& matrix)
   return res;
 }
 ```
+
+
+
