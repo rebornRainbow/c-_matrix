@@ -96,3 +96,53 @@ Matrix algebra::random(size_t n, size_t m, double min, double max)
   return res;
 } 
 ```
+
+### 求矩阵的行列式
+
+这个行列用一个递归的方式来实现的代数余子式的求行列式
+
+
+$$
+A_{n,m}\\
+其中M_{i,j}是余子式\\
+这个是代数余子式A_{i,j} = (-1)^{i+j} M_{i,j}\\
+|A| = \sum_{j=1}^{m} + a_{0,j} \cdot A_{0,j}\\
+$$
+
+```c++
+//求代数余子式
+double algebra::determinant(const Matrix& matrix)
+{
+  
+  //使用递归的方式
+  if(matrix.size() == 1&&matrix[0].size()==1)
+  {
+    return matrix[0][0];
+  }else if(matrix.size() == 0)
+  {
+    return 1;
+  }
+
+  if(matrix.size() != matrix[0].size())
+  {
+    throw std::logic_error("必须是方阵才可以做行列式");
+    return 0;
+  }
+
+
+
+  size_t m = matrix[0].size();
+  //等于某行的代数余子和
+  double res = 0;
+  for(size_t i = 0;i < m;++i)
+  {
+    double tem = matrix[0][i]*determinant(minor(matrix,0,i));
+    if((0+i)%2)
+    {
+      tem *= -1;
+    }
+    res += tem;
+  }
+  return res;
+}
+```

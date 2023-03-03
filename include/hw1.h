@@ -132,5 +132,17 @@ Matrix transpose(const Matrix& matrix);
 Matrix minor(const Matrix& matrix, size_t n, size_t m);
 
 
+
+/**
+ * @brief 
+ * determinant implement this function so
+ *  that it calculates the determinant of
+ *  the input matrix.
+ * @param matrix 
+ * @return double 
+ */
+double determinant(const Matrix& matrix);
+
+
 }
 #endif //AP_HW1_H

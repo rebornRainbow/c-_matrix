@@ -198,6 +198,42 @@ Matrix algebra::minor(const Matrix& matrix, size_t nr, size_t mc)
 
 }
 
+//求代数余子式
+double algebra::determinant(const Matrix& matrix)
+{
+  
+  //使用递归的方式
+  if(matrix.size() == 1&&matrix[0].size()==1)
+  {
+    return matrix[0][0];
+  }else if(matrix.size() == 0)
+  {
+    return 1;
+  }
+
+  if(matrix.size() != matrix[0].size())
+  {
+    throw std::logic_error("必须是方阵才可以做行列式");
+    return 0;
+  }
+
+
+
+  size_t m = matrix[0].size();
+  //等于某行的代数余子和
+  double res = 0;
+  for(size_t i = 0;i < m;++i)
+  {
+    double tem = matrix[0][i]*determinant(minor(matrix,0,i));
+    if((0+i)%2)
+    {
+      tem *= -1;
+    }
+    res += tem;
+  }
+  return res;
+}
+
 
 
 
